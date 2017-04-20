@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.Global_CompileSdkVersion
+    buildToolsVersion rootProject.ext.Global_BuildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.Global_MinSdkVersion
+        targetSdkVersion rootProject.ext.Global_TargetSdkVersion
+        versionCode Integer.parseInt(KISS_VERSION_CODE)
+        versionName KISS_VERSION_NAME
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile(Global_SupprotTestEspresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile Global_SupportAppcompatV7
+    testCompile Global_Junit
+}

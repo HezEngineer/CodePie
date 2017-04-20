@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.Global_CompileSdkVersion
+    buildToolsVersion rootProject.ext.Global_BuildToolsVersion
+    defaultConfig {
+        applicationId "com.hezhi.codepie"
+        minSdkVersion rootProject.ext.Global_MinSdkVersion
+        targetSdkVersion rootProject.ext.Global_TargetSdkVersion
+        versionCode Integer.parseInt(APP_VERSION_CODE)
+        versionName APP_VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile(Global_SupprotTestEspresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile Global_SupportAppcompatV7
+    compile Global_SupportConstraint
+    testCompile Global_Junit
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile project(':kiss')
+}

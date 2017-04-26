@@ -2,7 +2,6 @@ package com.hezhi.codepie;
 
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,9 +13,10 @@ import com.hezhi.kiss.interfaces.OnSoftKeyBoardListener;
 import com.hezhi.kiss.utils.AnimUtil;
 import com.hezhi.kiss.utils.ViewUtil;
 
+
 public class SoftSlideActivity extends BaseActivity {
 
-    private ConstraintLayout cons_root;
+    private LinearLayout ll_root;
     private ImageView iv_logo;
     private EditText edt_username;
     private Button btn_login;
@@ -32,7 +32,7 @@ public class SoftSlideActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soft_slide);
-        cons_root = (ConstraintLayout) findViewById(R.id.cons_root);
+        ll_root = (LinearLayout) findViewById(R.id.ll_root);
         iv_logo = (ImageView) findViewById(R.id.iv_logo);
         edt_username = (EditText) findViewById(R.id.edt_username);
         btn_login = (Button) findViewById(R.id.btn_login);
@@ -42,34 +42,41 @@ public class SoftSlideActivity extends BaseActivity {
             @Override
             public void onGlobalLayout() {
                 int[] location = {0,0};
-                btn_login.getLocationInWindow(location);
+                btn_login.getLocationOnScreen(location);
                 btnY = location[1]+btn_login.getHeight();
                 btn_login.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
 
-        onGlobalLayoutListener = ViewUtil.doMonitorSoftKeyboard(cons_root, new OnSoftKeyBoardListener() {
+
+        onGlobalLayoutListener = ViewUtil.doMonitorSoftKeyboard(ll_root, new OnSoftKeyBoardListener() {
             @Override
             public void hasShow(boolean isShow) {
                 if(isShow) {
                     Rect r = new Rect();
-                    cons_root.getWindowVisibleDisplayFrame(r);
-                    delta =  (float) Math.abs(r.bottom - btnY);
+                    ll_root.getWindowVisibleDisplayFrame(r);
+                    if(getSupportActionBar()!= null ) {
+                        delta = Math.abs(btnY-r.bottom-getSupportActionBar().getHeight());
+                    } else {
+                        delta =  (float) Math.abs(btnY-r.bottom);
+                    }
                     AnimUtil.up(ll_login,-delta);
-                    AnimUtil.up(iv_logo,-delta/3);
+                    AnimUtil.up(iv_logo,-delta/2);
                 } else {
-                    AnimUtil.up(ll_login,0);
                     AnimUtil.up(iv_logo,0);
+                    AnimUtil.up(ll_login,0);
+
                 }
             }
         });
+        ll_root.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if(onGlobalLayoutListener != null) {
-            cons_root.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
+            ll_root.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
         }
     }
 }

@@ -1,14 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.Global_CompileSdkVersion
-    buildToolsVersion rootProject.ext.Global_BuildToolsVersion
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.Global_MinSdkVersion
-        targetSdkVersion rootProject.ext.Global_TargetSdkVersion
-        versionCode Integer.parseInt(KISS_VERSION_CODE)
-        versionName KISS_VERSION_NAME
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.kissVersionCode
+        versionName rootProject.ext.android.kissVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -23,9 +23,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile(Global_SupprotTestEspresso, {
+    androidTestCompile(rootProject.ext.dependencies["espresso-core" ], {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile Global_SupportAppcompatV7
-    testCompile Global_Junit
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    testCompile rootProject.ext.dependencies["junit"]
 }

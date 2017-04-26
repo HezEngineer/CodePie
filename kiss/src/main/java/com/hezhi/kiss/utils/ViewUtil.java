@@ -33,7 +33,6 @@ public class ViewUtil {
                 }
             }
         };
-        v.getViewTreeObserver().addOnGlobalLayoutListener(layoutListener);
         return layoutListener;
     }
 }

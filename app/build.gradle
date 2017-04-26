@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.Global_CompileSdkVersion
-    buildToolsVersion rootProject.ext.Global_BuildToolsVersion
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
-        applicationId "com.hezhi.codepie"
-        minSdkVersion rootProject.ext.Global_MinSdkVersion
-        targetSdkVersion rootProject.ext.Global_TargetSdkVersion
-        versionCode Integer.parseInt(APP_VERSION_CODE)
-        versionName APP_VERSION_NAME
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.appVersionCode
+        versionName rootProject.ext.android.appVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,12 +21,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile(Global_SupprotTestEspresso, {
+    androidTestCompile(rootProject.ext.dependencies["espresso-core" ], {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile Global_SupportAppcompatV7
-    compile Global_SupportConstraint
-    testCompile Global_Junit
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["constraint-layout"]
+    testCompile rootProject.ext.dependencies["junit"]
     compile project(':kiss')
 }

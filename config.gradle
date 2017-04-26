@@ -1,0 +1,32 @@
+
+
+//配置全局的编译，构建，目标sdk
+ext{
+    android = [
+            compileSdkVersion : 25,
+            buildToolsVersion : '25.0.2',
+            applicationId     : "com.hezhi.codepie",
+            minSdkVersion     : 16,
+            targetSdkVersion  : 25,
+            appVersionCode    : 1,
+            appVersionName    : "1.0",
+            kissVersionCode   : 1,
+            kissVersionName   : "1.0",
+    ]
+
+    def dependVersion = [
+            support          : "25.3.1",
+            constraintlayout : "1.0.2",
+            junit            : "4.12",
+            espressocore     : "2.2.2"
+
+    ]
+
+    dependencies = [
+            "appcompat-v7"           : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "constraint-layout"      : "com.android.support.constraint:constraint-layout:${dependVersion.constraintlayout}",
+            "junit"                  : "junit:junit:${dependVersion.junit}",
+            "espresso-core"          : "com.android.support.test.espresso:espresso-core:${dependVersion.espressocore}"
+    ]
+
+}

@@ -1,18 +1,51 @@
-package com.hezhi.kiss.activity;
+package com.hezhi.kiss.base;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.os.IBinder;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.hezhi.kiss.Manager.activity.ActivityInfo;
+import com.hezhi.kiss.Manager.activity.ActivityManager;
+import com.hezhi.kiss.http.okhttp.HttpClient;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Created by yf11 on 2017/4/19.
  */
 
 public class BaseActivity extends AppCompatActivity {
+
+    protected String RequestTag = getClass().getSimpleName();
+    private Unbinder unbinder;
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        unbinder = ButterKnife.bind(this);
+        ActivityManager.addNewActivity(new ActivityInfo(RequestTag,this));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+        HttpClient.cancel(RequestTag);
+    }
+
+    @Override
+    public void onBackPressed() {
+        popUpActivity();
+    }
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if(ev.getAction() == MotionEvent.ACTION_DOWN) {
@@ -23,6 +56,13 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
         return super.dispatchTouchEvent(ev);
+    }
+
+    /**
+     * 网络请求写在这里
+     * */
+    public void refresh() {
+
     }
 
     /**
@@ -58,5 +98,25 @@ public class BaseActivity extends AppCompatActivity {
         }
         // 如果焦点不是EditText则忽略，这个发生在视图刚绘制完，第一个焦点不在EditView上，和用户用轨迹球选择其他的焦点
         return false;
+    }
+
+
+    public void popUpActivity() {
+        popUpActivity(false);
+    }
+
+    /**
+     * @param isrefresh
+     */
+    public void popUpActivity(boolean isrefresh) {
+        ActivityManager.popActivity(isrefresh);
+    }
+
+    /**
+     * @param id
+     * @param isrefresh
+     */
+    public void popUpActivity(String id, boolean isrefresh) {
+        ActivityManager.popToActivityById(id, isrefresh);
     }
 }

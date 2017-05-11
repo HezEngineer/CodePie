@@ -20,23 +20,23 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.hezhi.codepie.R.id.ll_root;
+
 
 public class SoftSlideActivity extends BaseActivity {
 
-    private LinearLayout ll_root;
-    private ImageView iv_logo;
-    private LinearLayout ll_login;
-
+    @BindView(R.id.iv_logo)
+    ImageView ivLogo;
+    @BindView(R.id.ll_login)
+    LinearLayout llLogin;
+    @BindView(ll_root)
+    LinearLayout llRoot;
     @BindView(R.id.edt_username)
     EditText edtUsername;
-
-
-
     @BindView(R.id.edt_password)
     EditText edtPassword;
     @BindView(R.id.btn_login)
     Button btnLogin;
-
 
 
     private ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener;
@@ -51,9 +51,9 @@ public class SoftSlideActivity extends BaseActivity {
         setContentView(R.layout.activity_soft_slide);
         ButterKnife.bind(this);
 
-        ll_root = (LinearLayout) findViewById(R.id.ll_root);
-        iv_logo = (ImageView) findViewById(R.id.iv_logo);
-        ll_login = (LinearLayout) findViewById(R.id.ll_login);
+        llRoot = (LinearLayout) findViewById(ll_root);
+        ivLogo = (ImageView) findViewById(R.id.iv_logo);
+        llLogin = (LinearLayout) findViewById(R.id.ll_login);
         // 按钮底部在Y轴的位置测量一次即可
         btnLogin.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -66,34 +66,34 @@ public class SoftSlideActivity extends BaseActivity {
         });
 
 
-        onGlobalLayoutListener = ViewUtil.doMonitorSoftKeyboard(ll_root, new OnSoftKeyBoardListener() {
+        onGlobalLayoutListener = ViewUtil.doMonitorSoftKeyboard(llRoot, new OnSoftKeyBoardListener() {
             @Override
             public void hasShow(boolean isShow) {
                 if (isShow) {
                     Rect r = new Rect();
-                    ll_root.getWindowVisibleDisplayFrame(r);
+                    llRoot.getWindowVisibleDisplayFrame(r);
                     if (getSupportActionBar() != null) {
                         delta = Math.abs(btnY - r.bottom - getSupportActionBar().getHeight());
                     } else {
                         delta = (float) Math.abs(btnY - r.bottom);
                     }
-                    AnimUtil.up(ll_login, -delta);
-                    AnimUtil.up(iv_logo, -delta / 2);
+                    AnimUtil.up(llLogin, -delta);
+                    AnimUtil.up(ivLogo, -delta / 2);
                 } else {
-                    AnimUtil.up(iv_logo, 0);
-                    AnimUtil.up(ll_login, 0);
+                    AnimUtil.up(ivLogo, 0);
+                    AnimUtil.up(llLogin, 0);
 
                 }
             }
         });
-        ll_root.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
+        llRoot.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (onGlobalLayoutListener != null) {
-            ll_root.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
+            llRoot.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
         }
     }
 

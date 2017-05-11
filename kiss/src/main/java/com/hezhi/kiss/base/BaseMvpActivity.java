@@ -10,7 +10,7 @@ import javax.inject.Inject;
  * 有mvp的Activity基类
  */
 
-public class BaseMvpActivity<T extends BasePresenter> extends BaseActivity {
+public abstract class BaseMvpActivity<T extends BasePresenter> extends BaseActivity {
     @Inject
     public T presenter;
 

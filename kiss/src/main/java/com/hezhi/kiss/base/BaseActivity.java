@@ -1,8 +1,10 @@
 package com.hezhi.kiss.base;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import com.hezhi.kiss.Manager.activity.ActivityInfo;
 import com.hezhi.kiss.Manager.activity.ActivityManager;
 import com.hezhi.kiss.http.okhttp.HttpClient;
+import com.hezhi.kiss.utils.PermissionUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -21,7 +24,7 @@ import butterknife.Unbinder;
  * Created by yf11 on 2017/4/19.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected String RequestTag = getClass().getSimpleName();
     private Unbinder unbinder;
@@ -33,6 +36,17 @@ public class BaseActivity extends AppCompatActivity {
         unbinder = ButterKnife.bind(this);
         ActivityManager.addNewActivity(new ActivityInfo(RequestTag,this));
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case PermissionUtil.Constant.CAMERA_CODE:
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    doOpenCamera();
+                }
+        }
+    }
+
 
     @Override
     protected void onDestroy() {
@@ -119,4 +133,6 @@ public class BaseActivity extends AppCompatActivity {
     public void popUpActivity(String id, boolean isrefresh) {
         ActivityManager.popToActivityById(id, isrefresh);
     }
+
+    protected void doOpenCamera(){};
 }

@@ -5,5 +5,5 @@ package com.hezhi.kiss.base;
  * 无mvp的Activity基类
  */
 
-public class BaseSimpleActivity extends BaseActivity {
+public abstract class BaseSimpleActivity extends BaseActivity {
 }

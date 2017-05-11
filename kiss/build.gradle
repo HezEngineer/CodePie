@@ -14,7 +14,6 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-
     }
     buildTypes {
         release {
@@ -23,12 +22,6 @@ android {
         }
     }
 
-
-
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
 
     testOptions {
         unitTests.returnDefaultValues = true
@@ -50,6 +43,7 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["dagger"]
     compile rootProject.ext.dependencies["dagger-compiler"]
+    compile rootProject.ext.dependencies["annotation"]
 
 
 

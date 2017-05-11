@@ -22,7 +22,7 @@ ext{
             okhttp           : "3.7.0",
             gson             : "2.8.0",
             butterknife      : "8.5.1",
-            dagger2          : "2.10"
+            dagger2          : "2.0.2"
 
     ]
 
@@ -40,7 +40,9 @@ ext{
             "butterknife"              : "com.jakewharton:butterknife:${dependVersion.butterknife}",
             "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
             "dagger"                   : "com.google.dagger:dagger:${dependVersion.dagger2}",
-            "dagger-compiler"          : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}"
+            "dagger-compiler"          : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
+            "annotation"                : "org.glassfish:javax.annotation:10.0-b28",
+
     ]
 
 

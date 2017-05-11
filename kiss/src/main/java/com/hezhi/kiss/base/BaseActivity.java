@@ -1,7 +1,6 @@
 package com.hezhi.kiss.base;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
@@ -39,11 +38,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case PermissionUtil.Constant.CAMERA_CODE:
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    doOpenCamera();
-                }
+        if(requestCode == PermissionUtil.Constant.CAMERA_CODE) {
+            if (PermissionUtil.verifyPermissions(grantResults)) {
+                doOpenCamera();
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 

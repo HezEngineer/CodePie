@@ -5,21 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.TextView;
 
+import com.hezhi.demo.audio.ui.AudioActivity;
 import com.hezhi.kiss.base.BaseActivity;
 import com.hezhi.kiss.utils.PermissionUtil;
 
 public class MainActivity extends BaseActivity {
-
-
-     TextView tv;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tv = (TextView) findViewById(R.id.tvAchievements);
 
     }
 
@@ -32,6 +27,13 @@ public class MainActivity extends BaseActivity {
         } else {
             doOpenCamera();
         }
+
+    }
+
+    public void toAudio(View v) {
+        Intent i = new Intent();
+        i.setClass(MainActivity.this, AudioActivity.class);
+        startActivity(i);
 
     }
 

@@ -1,19 +1,18 @@
-
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
+
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
 
-        applicationId rootProject.ext.android.applicationId
+       // applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.appVersionCode
         versionName rootProject.ext.android.appVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
         buildConfigField("String", "HttpName", "\"" + http_https + "\"")
         buildConfigField("String", "HttpAdderss", "\""+ serverAddress +"\"")
     }
@@ -30,18 +29,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile(rootProject.ext.dependencies["espresso-core" ], {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile rootProject.ext.dependencies["appcompat-v7"]
-    compile rootProject.ext.dependencies["constraint-layout"]
-    testCompile rootProject.ext.dependencies["junit"]
     compile project(':kiss')
 }

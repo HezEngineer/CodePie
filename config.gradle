@@ -27,21 +27,23 @@ ext{
     ]
 
     dependencies = [
-            "appcompat-v7"           : "com.android.support:appcompat-v7:${dependVersion.support}",
-            "constraint-layout"      : "com.android.support.constraint:constraint-layout:${dependVersion.constraintlayout}",
-            "junit"                  : "junit:junit:${dependVersion.junit}",
-            "espresso-core"          : "com.android.support.test.espresso:espresso-core:${dependVersion.espressocore}",
+            "appcompat-v7"             : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "constraint-layout"        : "com.android.support.constraint:constraint-layout:${dependVersion.constraintlayout}",
+            "junit"                    :  "junit:junit:${dependVersion.junit}",
+            "espresso-core"            : "com.android.support.test.espresso:espresso-core:${dependVersion.espressocore}",
 
             //okhttp依赖
-            "okhttp"                 : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
-            "gson"                   : "com.google.code.gson:gson:${dependVersion.gson}",
+            "okhttp"                   : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
+            "gson"                     : "com.google.code.gson:gson:${dependVersion.gson}",
 
             // 注解依赖
             "butterknife"              : "com.jakewharton:butterknife:${dependVersion.butterknife}",
             "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
             "dagger"                   : "com.google.dagger:dagger:${dependVersion.dagger2}",
             "dagger-compiler"          : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
-            "annotation"                : "org.glassfish:javax.annotation:10.0-b28",
+            "annotation"               : "org.glassfish:javax.annotation:10.0-b28",
+            "cardView"                 : "com.android.support:cardview-v7:${dependVersion.support}",
+            "recyclerView"             : "com.android.support:recyclerview-v7:${dependVersion.support}"
 
     ]
 

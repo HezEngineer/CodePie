@@ -37,20 +37,29 @@ dependencies {
     testCompile rootProject.ext.dependencies["junit"]
 
     //net
+    compile rootProject.ext.dependencies["retrofit"]
     compile rootProject.ext.dependencies["okhttp"]
     compile rootProject.ext.dependencies["gson"]
 
     //di
     compile rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    annotationProcessor  rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["dagger"]
-    compile rootProject.ext.dependencies["dagger-compiler"]
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     compile rootProject.ext.dependencies["annotation"]
 
     //widget
     compile rootProject.ext.dependencies["cardView"]
     compile rootProject.ext.dependencies["recyclerView"]
     compile rootProject.ext.dependencies["constraint-layout"]
+
+    compile rootProject.ext.dependencies["support-dynaic-anim"]
+
+    //rxjava
+    compile rootProject.ext.dependencies["rxjava"]
+
+
+
 
 
 

@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:text="name"
+        android:text="namesadss"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
@@ -18,21 +18,30 @@
         android:layout_marginRight="8dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintRight_toLeftOf="@+id/scPlay"
-        app:layout_constraintVertical_bias="0.529" />
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintRight_toLeftOf="@+id/sc_play"
+        app:layout_constraintVertical_bias="0.588"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <android.support.v7.widget.SwitchCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
+        android:id="@+id/sc_play"
+        android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/sc_play" />
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.571"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintHorizontal_bias="0.9"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp" />
+
+
 
 
 </android.support.constraint.ConstraintLayout>

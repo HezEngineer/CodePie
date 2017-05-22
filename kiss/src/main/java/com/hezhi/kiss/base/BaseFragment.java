@@ -3,7 +3,9 @@ package com.hezhi.kiss.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.hezhi.kiss.http.okhttp.HttpClient;
 
@@ -14,15 +16,23 @@ import butterknife.Unbinder;
  * Created by yf11 on 2017/5/9.
  */
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
     protected String RequestTag = getClass().getSimpleName();
     private Unbinder unbinder;
-
-
+    protected View view;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(getLayoutId(),null);
+        return view;
+    }
+
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -42,8 +52,8 @@ public class BaseFragment extends Fragment {
     /**
      * 网络请求写在这里
      * */
-    public void refresh() {
+    public void refresh() {}
 
-    }
+    protected abstract int getLayoutId();
 
 }

@@ -28,13 +28,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String RequestTag = getClass().getSimpleName();
     private Unbinder unbinder;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
         unbinder = ButterKnife.bind(this);
         ActivityManager.addNewActivity(new ActivityInfo(RequestTag,this));
     }
+
+    protected abstract int getLayoutId();
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

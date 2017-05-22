@@ -5,5 +5,5 @@ package com.hezhi.kiss.base;
  * 有mvp 的Fragment基类
  */
 
-public class BaseMvpFragment extends BaseFragment {
+public abstract class BaseMvpFragment<T extends BasePresenter> extends BaseFragment implements BaseView {
 }

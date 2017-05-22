@@ -4,10 +4,12 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.hezhi.codepie.R;
-import com.hezhi.codepie.audio.adapter.ViewHolder.AudioViewHolder;
+import com.hezhi.demo.audio.adapter.ViewHolder.AudioViewHolder;
 import com.hezhi.kiss.Model.media.AudioBean;
+import com.hezhi.kiss.utils.MediaUtil;
 
 import java.util.ArrayList;
 
@@ -37,7 +39,17 @@ public class AudiosAdapter extends RecyclerView.Adapter<AudioViewHolder> {
 
     @Override
     public void onBindViewHolder(AudioViewHolder holder, int position) {
-        AudioBean audioBean = audioList.get(position);
+        final AudioBean audioBean = audioList.get(position);
         holder.tvName.setText(audioBean.getName());
+        holder.scPlay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    MediaUtil.play(audioBean.getPath());
+                } else {
+                    MediaUtil.stop(audioBean.getPath());
+                }
+            }
+        });
     }
 }

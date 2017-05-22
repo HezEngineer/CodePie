@@ -5,5 +5,5 @@ package com.hezhi.kiss.base;
  *  无 mvp 的Fragment基类
  */
 
-public class BaseSimpleFragment extends BaseFragment {
+public abstract class BaseSimpleFragment extends BaseFragment {
 }

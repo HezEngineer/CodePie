@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/item_gank"
+        android:title="@string/gank_name"
+        android:icon="@mipmap/ic_launcher"/>
+
+    <item android:id="@+id/item_me"
+        android:title="@string/me_name"
+        android:icon="@mipmap/ic_launcher"/>
+</menu>

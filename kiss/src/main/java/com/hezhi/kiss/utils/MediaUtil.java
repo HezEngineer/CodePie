@@ -2,10 +2,13 @@ package com.hezhi.kiss.utils;
 
 import android.app.Activity;
 import android.database.Cursor;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.provider.MediaStore;
 
 import com.hezhi.kiss.Model.media.AudioBean;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -29,8 +32,8 @@ public class MediaUtil {
                 audio = new AudioBean();
                 audio.setId(cursor.getString(0));
                 audio.setName(cursor.getString(1));
-                audio.setId(cursor.getString(2));
-                audio.setId(cursor.getString(3));
+                audio.setPath(cursor.getString(2));
+                audio.setSize(cursor.getString(3));
                 System.out.println("====audio id   " + audio.getId());
                 System.out.println("====audio name   " + audio.getName());
                 System.out.println("====audio path   " + audio.getPath());
@@ -41,7 +44,34 @@ public class MediaUtil {
         }
 
         return audioList;
+    }
 
+    public static MediaPlayer mediaPlayer = new MediaPlayer();
+
+    public static void play(String path) {
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.stop();
+        }
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        try {
+            mediaPlayer.setDataSource(path);
+            mediaPlayer.prepare(); // must call prepare first
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mediaPlayer.start(); // then start
+    }
+
+    public static void stop(String path) {
+        mediaPlayer.stop();
 
     }
+
+
 }

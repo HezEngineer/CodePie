@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context="com.hezhi.codepie.SoftSlideActivity"
+    tools:context="com.hezhi.codepie.com.hezhi.demo.Anim.SoftSlideActivity"
     >
 
 

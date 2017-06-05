@@ -17,8 +17,15 @@ ext{
     dependVersion = [
             support          : "25.3.1",
             constraintlayout : "1.0.2",
+
+            //test
             junit            : "4.12",
             espressocore     : "2.2.2",
+            runner           : "0.5",
+            mockitoVersion   : '1.10.19',
+            powerMockito     : '1.6.2',
+            hamcrestVersion  : '1.3',
+
             retrofit         : "2.3.0",
             okhttp           : "3.7.0",
             gson             : "2.8.0",
@@ -33,11 +40,7 @@ ext{
             "appcompat-v7"             : "com.android.support:appcompat-v7:${dependVersion.support}",
             "design"                   : "com.android.support:design:${dependVersion.support}",
 
-            //test
-            "junit"                    :  "junit:junit:${dependVersion.junit}",
-            "espresso-core"            : "com.android.support.test.espresso:espresso-core:${dependVersion.espressocore}",
-
-            //okhttp依赖
+            //网络框架依赖
             "retrofit"                 : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
             "okhttp"                   : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
             "gson"                     : "com.google.code.gson:gson:${dependVersion.gson}",
@@ -45,14 +48,25 @@ ext{
             //rxjava
             "rxjava"                   : "io.reactivex.rxjava2:rxjava:${dependVersion.rxjava}",
 
-
-
             // 注解依赖
             "butterknife"              : "com.jakewharton:butterknife:${dependVersion.butterknife}",
             "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
             "dagger"                   : "com.google.dagger:dagger:${dependVersion.dagger2}",
             "dagger-compiler"          : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
             "annotation"               : "org.glassfish:javax.annotation:10.0-b28",
+
+            // Dependencies for local unit tests
+            "junit"                    :  "junit:junit:${dependVersion.junit}",
+            "mockito-all"              :  "org.mockito:mockito-all:${dependVersion.mockitoVersion}",
+
+            // Espresso UI Testing dependencies.
+            "espresso-core"            : "com.android.support.test.espresso:espresso-core:${dependVersion.espressocore}",
+            "espresso-contrib"         : "com.android.support.test.espresso:espresso-contrib:${dependVersion.espressocore}",
+            "espresso-intents"            : "com.android.support.test.espresso:espresso-intents:${dependVersion.espressocore}",
+
+            // Android Testing Support Library's runner and rules
+            "testRunner"               : "com.android.support.test:runner:${dependVersion.runner}",
+            "testRules"                : "com.android.support.test:rules:${dependVersion.runner}",
 
             //widget
             "cardView"                 : "com.android.support:cardview-v7:${dependVersion.support}",

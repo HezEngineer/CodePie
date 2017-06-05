@@ -1,11 +1,21 @@
 package com.hezhi.gank.ui.gank.fragment;
 
 
+import android.os.Bundle;
+
 import com.hezhi.gank.R;
 import com.hezhi.kiss.base.BaseSimpleFragment;
 
 
 public class FrontFragment extends BaseSimpleFragment {
+
+ public static FrontFragment newInstance(String title) {
+  FrontFragment frontFragment = new FrontFragment();
+  Bundle args = new Bundle();
+  args.putString(TITLE,title);
+  frontFragment.setArguments(args);
+  return frontFragment;
+ }
 
  @Override
  protected int getLayoutId() {

@@ -6,4 +6,5 @@ package com.hezhi.kiss.base;
  */
 
 public abstract class BaseSimpleFragment extends BaseFragment {
+
 }

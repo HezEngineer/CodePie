@@ -28,11 +28,13 @@ android {
 }
 
 dependencies {
-    compile project(':kiss')
-    compile rootProject.ext.dependencies["design"]
-    compile rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
-    compile 'com.android.support:support-v4:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
+    implementation project(':kiss')
+
+    implementation rootProject.ext.dependencies["design"]
+
+    // I added this dependency in kiss build.gradle,but NullPointerException happened in gank,so
+    // i added it here again;
+    implementation rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 }

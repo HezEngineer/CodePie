@@ -29,34 +29,44 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile(rootProject.ext.dependencies["espresso-core" ], {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile rootProject.ext.dependencies["appcompat-v7"]
-    testCompile rootProject.ext.dependencies["junit"]
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+
+    // Dependencies for local unit tests
+    testImplementation rootProject.ext.dependencies["junit"]
+    testImplementation rootProject.ext.dependencies["mockito-all"]
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation(rootProject.ext.dependencies["testRunner" ])
+    androidTestImplementation(rootProject.ext.dependencies["testRules" ])
+
+    // Espresso UI Testing dependencies.
+    androidTestImplementation(rootProject.ext.dependencies["espresso-core" ])
+    androidTestImplementation(rootProject.ext.dependencies["espresso-contrib" ])
+    androidTestImplementation(rootProject.ext.dependencies["espresso-intents" ])
 
     //net
-    compile rootProject.ext.dependencies["retrofit"]
-    compile rootProject.ext.dependencies["okhttp"]
-    compile rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["okhttp"]
+    implementation rootProject.ext.dependencies["gson"]
 
     //di
-    compile rootProject.ext.dependencies["butterknife"]
+    implementation rootProject.ext.dependencies["butterknife"]
     annotationProcessor  rootProject.ext.dependencies["butterknife-compiler"]
-    compile rootProject.ext.dependencies["dagger"]
+    implementation rootProject.ext.dependencies["dagger"]
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
-    compile rootProject.ext.dependencies["annotation"]
+    implementation rootProject.ext.dependencies["annotation"]
 
     //widget
-    compile rootProject.ext.dependencies["cardView"]
-    compile rootProject.ext.dependencies["recyclerView"]
-    compile rootProject.ext.dependencies["constraint-layout"]
+    implementation rootProject.ext.dependencies["cardView"]
+    implementation rootProject.ext.dependencies["recyclerView"]
+    implementation rootProject.ext.dependencies["constraint-layout"]
 
-    compile rootProject.ext.dependencies["support-dynaic-anim"]
+    implementation rootProject.ext.dependencies["support-dynaic-anim"]
 
     //rxjava
-    compile rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["rxjava"]
 
 
 

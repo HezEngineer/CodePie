@@ -58,6 +58,7 @@ public class MainActivity extends BaseSimpleActivity {
                 return false;
             }
         });
+
         pageChangeListener = new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -86,6 +87,8 @@ public class MainActivity extends BaseSimpleActivity {
         fragments = new ArrayList<>();
         fragments.add(gankFragment);
         fragments.add(meFragment);
+
+
         vpMain.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -98,8 +101,6 @@ public class MainActivity extends BaseSimpleActivity {
             }
         });
         vpMain.addOnPageChangeListener(pageChangeListener);
-
-
     }
 
     @Override

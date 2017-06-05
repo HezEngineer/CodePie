@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hezhi.kiss.http.okhttp.HttpClient;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -17,6 +16,9 @@ import butterknife.Unbinder;
  */
 
 public abstract class BaseFragment extends Fragment {
+
+    public static final String TITLE = "title";
+
     protected String RequestTag = getClass().getSimpleName();
     private Unbinder unbinder;
     protected View view;
@@ -45,7 +47,6 @@ public abstract class BaseFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
-        HttpClient.cancel(RequestTag);
     }
 
 

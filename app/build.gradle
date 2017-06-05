@@ -35,5 +35,5 @@ android {
 
 
 dependencies {
-    compile project(':kiss')
+    implementation project(':kiss')
 }

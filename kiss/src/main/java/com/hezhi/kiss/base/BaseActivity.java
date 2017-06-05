@@ -13,7 +13,6 @@ import android.widget.EditText;
 
 import com.hezhi.kiss.Manager.activity.ActivityInfo;
 import com.hezhi.kiss.Manager.activity.ActivityManager;
-import com.hezhi.kiss.http.okhttp.HttpClient;
 import com.hezhi.kiss.utils.PermissionUtil;
 
 import butterknife.ButterKnife;
@@ -54,7 +53,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
-        HttpClient.cancel(RequestTag);
     }
 
     @Override

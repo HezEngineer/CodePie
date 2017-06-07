@@ -29,9 +29,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["appcompat-v7"]
 
     // Dependencies for local unit tests
     testImplementation rootProject.ext.dependencies["junit"]
@@ -47,26 +47,29 @@ dependencies {
     androidTestImplementation(rootProject.ext.dependencies["espresso-intents" ])
 
     //net
-    implementation rootProject.ext.dependencies["retrofit"]
-    implementation rootProject.ext.dependencies["okhttp"]
-    implementation rootProject.ext.dependencies["gson"]
+    compile rootProject.ext.dependencies["retrofit"]
+    compile rootProject.ext.dependencies["okhttp"]
+    compile rootProject.ext.dependencies["gson"]
 
     //di
-    implementation rootProject.ext.dependencies["butterknife"]
+    compile rootProject.ext.dependencies["butterknife"]
     annotationProcessor  rootProject.ext.dependencies["butterknife-compiler"]
-    implementation rootProject.ext.dependencies["dagger"]
+    compile rootProject.ext.dependencies["dagger"]
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
-    implementation rootProject.ext.dependencies["annotation"]
+    compile rootProject.ext.dependencies["annotation"]
 
     //widget
-    implementation rootProject.ext.dependencies["cardView"]
-    implementation rootProject.ext.dependencies["recyclerView"]
-    implementation rootProject.ext.dependencies["constraint-layout"]
+    compile rootProject.ext.dependencies["cardView"]
+    compile rootProject.ext.dependencies["recyclerView"]
+    compile rootProject.ext.dependencies["constraint-layout"]
 
-    implementation rootProject.ext.dependencies["support-dynaic-anim"]
+    compile rootProject.ext.dependencies["support-dynaic-anim"]
 
     //rxjava
-    implementation rootProject.ext.dependencies["rxjava"]
+    compile rootProject.ext.dependencies["rxjava"]
+
+    //imageLoader
+    compile rootProject.ext.dependencies["glide"]
 
 
 

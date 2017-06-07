@@ -8,14 +8,14 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion
     defaultConfig {
 
-       // applicationId rootProject.ext.android.applicationId
+        // applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.appVersionCode
         versionName rootProject.ext.android.appVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "HttpName", "\"" + http_https + "\"")
-        buildConfigField("String", "HttpAdderss", "\""+ serverAddress +"\"")
+        buildConfigField("String", "HttpAdderss", "\"" + serverAddress + "\"")
     }
 
 
@@ -36,4 +36,7 @@ android {
 
 dependencies {
     implementation project(':kiss')
+    compile rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

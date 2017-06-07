@@ -21,11 +21,19 @@
         android:textAllCaps="false"/>
 
     <Button
-        android:id="@+id/btn2"
+    android:id="@+id/btn2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="toRxjava"
+    android:onClick="toRxjava"
+    android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="toRxjava"
-        android:onClick="toRxjava"
+        android:text="toViewPager"
+        android:onClick="toViewPager"
         android:textAllCaps="false"/>
 
 </LinearLayout>

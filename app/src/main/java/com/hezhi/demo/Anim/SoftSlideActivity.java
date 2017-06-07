@@ -9,16 +9,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.hezhi.codepie.R;
-import com.hezhi.codepie.model.bean.LoginBean;
-import com.hezhi.codepie.model.net.RequestCenter;
 import com.hezhi.kiss.base.BaseActivity;
-import com.hezhi.kiss.http.okhttp.response.DisposeDataListener;
 import com.hezhi.kiss.interfaces.OnSoftKeyBoardListener;
 import com.hezhi.kiss.utils.AnimUtil;
 import com.hezhi.kiss.utils.ViewUtil;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 import static com.hezhi.codepie.R.id.ll_root;
 
@@ -99,22 +95,4 @@ public class SoftSlideActivity extends BaseActivity {
             llRoot.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
         }
     }
-
-    @OnClick(R.id.btn_login)
-    public void onViewClicked() {
-        RequestCenter.login(RequestTag, edtUsername.getText().toString(), edtPassword.getText().toString(), new DisposeDataListener() {
-            @Override
-            public void onSuccess(Object responseObj) {
-                LoginBean loginBean = (LoginBean) responseObj;
-
-            }
-
-            @Override
-            public void onFail(Object reasonObj) {
-
-            }
-        });
-    }
-
-
 }

@@ -17,9 +17,4 @@ public class HttpConstatns {
 
     // TODO: 2017/5/2
     public static final String ROOT_URL = Http_http + Http_address;
-
-    /**
-     * 登录
-     */
-    public final static String LOGIN = ROOT_URL + "/phone/SystemLogin";
 }

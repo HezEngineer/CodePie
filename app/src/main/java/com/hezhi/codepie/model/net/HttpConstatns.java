@@ -22,12 +22,4 @@ public class HttpConstatns {
      * 登录
      */
     public final static String LOGIN = ROOT_URL + "/phone/SystemLogin";
-
-    /**
-     * 请求一次成绩单服务器地址
-     * https://out.wish80.com:9115/ytw-web/phone/cj/order.shtml?seID=16947
-     *  https://out.wish80.com:9115/ytw-web/phone/cj/subject-list.shtml?seID=16947
-     * */
-
-    public final static String ACHEIVEMENTSS = ROOT_URL + "/phone/cj/order.shtml";
 }

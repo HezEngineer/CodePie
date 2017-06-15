@@ -26,12 +26,14 @@ public class ViewPagerActivity extends BaseSimpleActivity {
     public static final int LOOP = 1000;
 
     @BindView(R.id.vp_loop)
-    ViewPager vpLoop;
+    LoopViewPager vpLoop;
     @BindView(R.id.ll_dots)
     LinearLayout llDots;
 
+    private boolean isAutoRefresh = true;
 
-    int currentIndex = 1;
+
+    int currentIndex = 0;
 
     int size = 5;
 
@@ -45,7 +47,9 @@ public class ViewPagerActivity extends BaseSimpleActivity {
                     System.out.println("=====currentIndex = [" + currentIndex + "]");
                     currentIndex = currentIndex % size;
                     vpLoop.setCurrentItem(currentIndex);
-                    sendEmptyMessageDelayed(LOOP,3000);
+                    if(vpLoop.isAutoRefresh()) {
+                        sendEmptyMessageDelayed(LOOP,3000);
+                    }
                     break;
             }
         }
@@ -61,9 +65,11 @@ public class ViewPagerActivity extends BaseSimpleActivity {
         super.onCreate(savedInstanceState);
         AdsPagerAdapter adsPagerAdapter = new AdsPagerAdapter(this);
         vpLoop.setAdapter(adsPagerAdapter);
+
         vpLoop.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                System.out.println("====positionOffset = [" + positionOffset + "]");
 
             }
 
@@ -81,6 +87,8 @@ public class ViewPagerActivity extends BaseSimpleActivity {
             }
         });
         handler.sendEmptyMessageDelayed(LOOP,3000);
+
+
     }
 
 
@@ -106,7 +114,7 @@ public class ViewPagerActivity extends BaseSimpleActivity {
                     .placeholder(context.getResources().getDrawable(R.mipmap.ic_launcher))
                     .into(iv_ad);
             container.addView(view);
-            return  view;
+            return view;
         }
 
         @Override

@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.hezhi.gank.R;
 import com.hezhi.gank.ui.gank.adapter.FragmentAdapter;
+import com.hezhi.gank.widget.MulViewPager;
 import com.hezhi.kiss.base.BaseSimpleFragment;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class GankFragment extends BaseSimpleFragment {
     @BindView(R.id.tlGank)
     TabLayout tlGank;
     @BindView(R.id.vpGank)
-    ViewPager vpGank;
+    MulViewPager vpGank;
 
     List<Fragment> fragments = null;
 

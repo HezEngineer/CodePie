@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import com.hezhi.gank.R;
 import com.hezhi.gank.ui.gank.fragment.GankFragment;
 import com.hezhi.gank.ui.gank.fragment.MeFragment;
-import com.hezhi.gank.widget.MulViewPager;
 import com.hezhi.kiss.base.BaseSimpleActivity;
 
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ import butterknife.BindView;
 public class MainActivity extends BaseSimpleActivity {
 
     @BindView(R.id.vpMain)
-    MulViewPager vpMain;
+    ViewPager vpMain;
     @BindView(R.id.bnvMain)
     BottomNavigationView bnvMain;
 

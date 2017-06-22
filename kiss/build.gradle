@@ -48,6 +48,7 @@ dependencies {
 
     //net
     compile rootProject.ext.dependencies["retrofit"]
+    compile "com.squareup.retrofit2:converter-gson:2.3.0"
     compile rootProject.ext.dependencies["okhttp"]
     compile rootProject.ext.dependencies["gson"]
 

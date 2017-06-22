@@ -5,4 +5,5 @@ package com.hezhi.kiss.base;
  */
 
 public interface BaseView {
+
 }

@@ -49,12 +49,6 @@ public abstract class BaseFragment extends Fragment {
         unbinder.unbind();
     }
 
-
-    /**
-     * 网络请求写在这里
-     * */
-    public void refresh() {}
-
     protected abstract int getLayoutId();
 
 }

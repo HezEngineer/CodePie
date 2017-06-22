@@ -8,6 +8,7 @@ import android.view.ViewConfiguration;
 
 /**
  * Created by yf11 on 2017/5/19.
+ * solve the conflict of nested ViewPager
  */
 
 public class MulViewPager extends ViewPager {

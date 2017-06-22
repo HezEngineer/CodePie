@@ -5,14 +5,9 @@
     android:orientation="vertical"
     tools:context="com.hezhi.gank.ui.gank.fragment.AndroidFragment">
 
-
-    <com.hezhi.gank.widget.ShiningTextView
-        android:id="@+id/tvScroll"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:background="@android:color/holo_orange_dark"
-
-        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvAndroid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

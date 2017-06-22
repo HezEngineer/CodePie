@@ -13,12 +13,17 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String","serverAddress","gankServerAddress"
+        buildConfigField "String","http","http_http"
 
+        buildConfigField("String", "http", "\"" + http_http + "\"")
+        buildConfigField("String", "serverAddress", "\"" + gankServerAddress + "\"")
     }
 
     buildTypes {
         debug {
             debuggable true
+
         }
         release {
             minifyEnabled false

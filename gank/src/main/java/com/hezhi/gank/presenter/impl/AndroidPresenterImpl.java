@@ -25,6 +25,8 @@ public class AndroidPresenterImpl extends BasePresenterImpl<AndroidContract.View
 
     @Override
     public void getData(String type) {
+
+        //todo use dragger to inject Rerofit
         Retrofit retrofit = new Retrofit.Builder().baseUrl(GankService.rootUrl).addConverterFactory(GsonConverterFactory.create()).build();
         GankService gankService = retrofit.create(GankService.class);
         Call<GankReponse<List<GankItemBean>>> call =  gankService.getData(type,NUM_OF_PAGE,curPage);
@@ -44,6 +46,7 @@ public class AndroidPresenterImpl extends BasePresenterImpl<AndroidContract.View
 
     @Override
     public void getMoreData(String type) {
+        //todo use dragger to inject Rerofit
         Retrofit retrofit = new Retrofit.Builder().baseUrl(GankService.rootUrl).addConverterFactory(GsonConverterFactory.create()).build();
         GankService gankService = retrofit.create(GankService.class);
         Call<GankReponse<List<GankItemBean>>> call =  gankService.getData(type,NUM_OF_PAGE,++curPage);

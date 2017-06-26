@@ -14,11 +14,13 @@ public interface AndroidContract {
 
     interface View extends BaseView {
         void showData(List<GankItemBean> list);
+        void showMoreData(List<GankItemBean> list);
     }
 
     interface Presenter extends BasePresenter<View> {
 
-        void getAndroidData();
+        void getData(String type);
+        void getMoreData(String type);
 
     }
 }

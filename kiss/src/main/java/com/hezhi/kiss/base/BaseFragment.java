@@ -17,7 +17,6 @@ import butterknife.Unbinder;
 
 public abstract class BaseFragment extends Fragment {
 
-    public static final String TITLE = "title";
 
     protected String RequestTag = getClass().getSimpleName();
     private Unbinder unbinder;

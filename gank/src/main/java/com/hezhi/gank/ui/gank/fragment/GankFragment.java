@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.hezhi.gank.R;
+import com.hezhi.gank.common.constant.Constant;
 import com.hezhi.gank.ui.gank.adapter.FragmentAdapter;
 import com.hezhi.gank.widget.MulViewPager;
 import com.hezhi.kiss.base.BaseSimpleFragment;
@@ -39,9 +40,9 @@ public class GankFragment extends BaseSimpleFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fragments = new ArrayList<>();
-        fragments.add(AndroidFragment.newInstance("Android"));
-        fragments.add(IOSFragment.newInstance("IOS"));
-        fragments.add(FrontFragment.newInstance("前端"));
+        fragments.add(AndroidFragment.newInstance(Constant.TYPE_ANDROID,Constant.TYPE_ANDROID));
+        fragments.add(AndroidFragment.newInstance(Constant.TYPE_IOS,Constant.TYPE_IOS));
+        fragments.add(AndroidFragment.newInstance(Constant.TYPE_FRONTEND,Constant.TYPE_FRONTEND));
         vpGank.setAdapter(new FragmentAdapter(getChildFragmentManager(),fragments));
         tlGank.addTab(tlGank.newTab());
         tlGank.addTab(tlGank.newTab());

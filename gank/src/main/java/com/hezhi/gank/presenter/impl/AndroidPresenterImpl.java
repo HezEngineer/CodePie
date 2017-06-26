@@ -24,15 +24,34 @@ public class AndroidPresenterImpl extends BasePresenterImpl<AndroidContract.View
     private int curPage = 1;
 
     @Override
-    public void getAndroidData() {
+    public void getData(String type) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(GankService.rootUrl).addConverterFactory(GsonConverterFactory.create()).build();
         GankService gankService = retrofit.create(GankService.class);
-        Call<GankReponse<List<GankItemBean>>> call =  gankService.getData("Android",NUM_OF_PAGE,curPage);
+        Call<GankReponse<List<GankItemBean>>> call =  gankService.getData(type,NUM_OF_PAGE,curPage);
         call.enqueue(new Callback<GankReponse<List<GankItemBean>>>() {
             @Override
             public void onResponse(Call<GankReponse<List<GankItemBean>>> call, Response<GankReponse<List<GankItemBean>>> response) {
                 List<GankItemBean> gankItemBeans = response.body().getResults();
                 view.showData(gankItemBeans);
+            }
+
+            @Override
+            public void onFailure(Call<GankReponse<List<GankItemBean>>> call, Throwable throwable) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getMoreData(String type) {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(GankService.rootUrl).addConverterFactory(GsonConverterFactory.create()).build();
+        GankService gankService = retrofit.create(GankService.class);
+        Call<GankReponse<List<GankItemBean>>> call =  gankService.getData(type,NUM_OF_PAGE,++curPage);
+        call.enqueue(new Callback<GankReponse<List<GankItemBean>>>() {
+            @Override
+            public void onResponse(Call<GankReponse<List<GankItemBean>>> call, Response<GankReponse<List<GankItemBean>>> response) {
+                List<GankItemBean> gankItemBeans = response.body().getResults();
+                view.showMoreData(gankItemBeans);
             }
 
             @Override

@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.hezhi.kiss.base.BaseFragment;
+import com.hezhi.gank.common.constant.Constant;
 
 import java.util.List;
 
@@ -38,6 +38,6 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return fragments.get(position).getArguments().get(BaseFragment.TITLE).toString();
+        return fragments.get(position).getArguments().get(Constant.TITLE).toString();
     }
 }

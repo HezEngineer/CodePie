@@ -32,7 +32,7 @@ public class AndroidAdapter extends RecyclerView.Adapter<AndroidAdapter.AndroidV
 
     @Override
     public AndroidVH onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AndroidVH(inflater.inflate(R.layout.view_android_item,parent,false));
+        return new AndroidVH(inflater.inflate(R.layout.item_android,parent,false));
     }
 
     @Override

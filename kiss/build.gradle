@@ -55,7 +55,7 @@ dependencies {
     //di
     compile rootProject.ext.dependencies["butterknife"]
     annotationProcessor  rootProject.ext.dependencies["butterknife-compiler"]
-    compile rootProject.ext.dependencies["dagger"]
+    compile rootProject.ext.dependencies["dagger2"]
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     compile rootProject.ext.dependencies["annotation"]
 

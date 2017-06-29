@@ -54,7 +54,7 @@ ext{
             // 注解依赖
             "butterknife"              : "com.jakewharton:butterknife:${dependVersion.butterknife}",
             "butterknife-compiler"     : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
-            "dagger"                   : "com.google.dagger:dagger:${dependVersion.dagger2}",
+            "dagger2"                   : "com.google.dagger:dagger:${dependVersion.dagger2}",
             "dagger-compiler"          : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
             "annotation"               : "org.glassfish:javax.annotation:10.0-b28",
 

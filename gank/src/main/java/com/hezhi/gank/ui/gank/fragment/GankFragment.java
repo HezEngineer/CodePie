@@ -43,6 +43,7 @@ public class GankFragment extends BaseSimpleFragment {
         fragments.add(AndroidFragment.newInstance(Constant.TYPE_ANDROID,Constant.TYPE_ANDROID));
         fragments.add(AndroidFragment.newInstance(Constant.TYPE_IOS,Constant.TYPE_IOS));
         fragments.add(AndroidFragment.newInstance(Constant.TYPE_FRONTEND,Constant.TYPE_FRONTEND));
+        fragments.add(GirlFragment.newInstance(Constant.TYPE_GRIL,Constant.TYPE_FRONTEND));
         vpGank.setAdapter(new FragmentAdapter(getChildFragmentManager(),fragments));
         tlGank.addTab(tlGank.newTab());
         tlGank.addTab(tlGank.newTab());

@@ -28,21 +28,23 @@ import butterknife.BindView;
 public class AndroidFragment extends BaseMvpFragment<AndroidPresenterImpl> implements AndroidContract.View {
 
 
-    @BindView(R.id.rvAndroid)
-    RecyclerView rvAndroid;
-
     @BindView(R.id.srl_refresh)
     SwipeRefreshLayout srlRefresh;
+
+    @BindView(R.id.rv_Android)
+    RecyclerView rvAndroid;
 
     List<GankItemBean> mList;
     AndroidAdapter adapter;
 
     String type;
-    public static AndroidFragment newInstance(String title,String type) {
+
+
+    public static AndroidFragment newInstance(String title, String type) {
         AndroidFragment androidFragment = new AndroidFragment();
         Bundle args = new Bundle();
         args.putString(Constant.TITLE, title);
-        args.putString(Constant.TECH_TYPE,type);
+        args.putString(Constant.TYPE, type);
         androidFragment.setArguments(args);
         return androidFragment;
     }
@@ -62,7 +64,7 @@ public class AndroidFragment extends BaseMvpFragment<AndroidPresenterImpl> imple
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        type = getArguments().getString(Constant.TECH_TYPE);
+        type = getArguments().getString(Constant.TYPE);
         mList = new ArrayList<>();
         rvAndroid.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new AndroidAdapter(mList, getActivity());
@@ -98,7 +100,7 @@ public class AndroidFragment extends BaseMvpFragment<AndroidPresenterImpl> imple
             public void onItemClick(int position) {
                 Intent i = new Intent();
                 i.setClass(getActivity(), ArticleDetailActivity.class);
-                i.putExtra(Constant.DETAIL_URL,mList.get(position).getUrl());
+                i.putExtra(Constant.DETAIL_URL, mList.get(position).getUrl());
                 startActivity(i);
             }
         });
@@ -108,7 +110,7 @@ public class AndroidFragment extends BaseMvpFragment<AndroidPresenterImpl> imple
 
     @Override
     public void showData(List<GankItemBean> list) {
-        if(srlRefresh.isRefreshing()) {
+        if (srlRefresh.isRefreshing()) {
             srlRefresh.setRefreshing(false);
         }
         mList.clear();
@@ -122,4 +124,5 @@ public class AndroidFragment extends BaseMvpFragment<AndroidPresenterImpl> imple
         mList.addAll(list);
         adapter.notifyDataSetChanged();
     }
+
 }

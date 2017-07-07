@@ -1,5 +1,7 @@
 package com.hezhi.gank.di.component;
 
+import com.hezhi.gank.model.http.api.GankService;
+
 import dagger.Component;
 
 /**
@@ -7,5 +9,7 @@ import dagger.Component;
  */
 @Component
 public interface AppComponent {
+
+    GankService injectService();
 
 }

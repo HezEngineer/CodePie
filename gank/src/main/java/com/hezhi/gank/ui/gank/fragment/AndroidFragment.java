@@ -57,7 +57,6 @@ public class AndroidFragment extends BaseMvpFragment<AndroidPresenterImpl> imple
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        presenter = new AndroidPresenterImpl();
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

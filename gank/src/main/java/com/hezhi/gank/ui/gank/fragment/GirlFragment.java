@@ -20,7 +20,10 @@ import com.hezhi.kiss.base.BaseMvpFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
+import retrofit2.Retrofit;
 
 /**
  * Created by yf11 on 2017/6/29.
@@ -32,6 +35,9 @@ public class GirlFragment extends BaseMvpFragment<GrilPresenterImpl> implements 
     RecyclerView rvAndroid;
     @BindView(R.id.srl_refresh)
     SwipeRefreshLayout srlRefresh;
+
+    @Inject
+    Retrofit retrofit;
 
     List<GankItemBean> grilList;
 
@@ -55,7 +61,7 @@ public class GirlFragment extends BaseMvpFragment<GrilPresenterImpl> implements 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        presenter = new GrilPresenterImpl();
+        presenter = new GrilPresenterImpl(retrofit);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

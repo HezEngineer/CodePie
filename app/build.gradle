@@ -14,8 +14,6 @@ android {
         versionCode rootProject.ext.android.appVersionCode
         versionName rootProject.ext.android.appVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "HttpName", "\"" + http_https + "\"")
-        buildConfigField("String", "HttpAdderss", "\"" + gankServerAddress + "\"")
     }
 
 

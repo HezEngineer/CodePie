@@ -13,11 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField "String","serverAddress","gankServerAddress"
-        buildConfigField "String","http","http_http"
 
-        buildConfigField("String", "http", "\"" + http_http + "\"")
-        buildConfigField("String", "serverAddress", "\"" + gankServerAddress + "\"")
     }
 
     buildTypes {
@@ -42,4 +38,6 @@ dependencies {
     // i added it here again;
     implementation rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+
+
 }

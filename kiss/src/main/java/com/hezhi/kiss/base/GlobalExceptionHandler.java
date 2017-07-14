@@ -6,9 +6,9 @@ package com.hezhi.kiss.base;
  */
 public class GlobalExceptionHandler implements Thread.UncaughtExceptionHandler {
     private Thread.UncaughtExceptionHandler mDefaultHandler;
-    private MoiApplication application;
+    private App application;
 
-    public GlobalExceptionHandler(MoiApplication application) {
+    public GlobalExceptionHandler(App application) {
         this.mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
         this.application = application;
     }
